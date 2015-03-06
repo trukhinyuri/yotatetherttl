@@ -28,10 +28,10 @@ public class MainActivity extends Activity {
         {
             case R.id.btn: ttlnumber=127; break;
             case R.id.button2: ttlnumber=63; break;
-            case R.id.button3:    input = (EditText)findViewById(R.id.txt);
+            case R.id.button3:
                 TextView tv = (TextView) findViewById(R.id.textView2);
-                if(input!=null) {
-                    input = (EditText)findViewById(R.id.txt);
+                input = (EditText)findViewById(R.id.txt);
+                if(input.length()>0) {
                     ttlnumber = Integer.parseInt(input.getText().toString());
                     if (ttlnumber > 1 && ttlnumber < 255) {
 
