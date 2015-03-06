@@ -22,10 +22,6 @@ public class MainActivity extends Activity {
 
     }
     public void onMyClick(View v) {
-        command = "settings put global airplane_mode_on 1";
-        command += "\nam broadcast -a android.intent.action.AIRPLANE_MODE --ez state true";
-        command += "\nsettings put global tether_dun_required 0";
-        exe.Executer(command);
         int ttlnumber = 63;
         String error=null;
         switch(v.getId())
@@ -52,6 +48,10 @@ public class MainActivity extends Activity {
         }
         TextView tv = (TextView) findViewById(R.id.textView2);
         if(error==null) {
+            command = "settings put global airplane_mode_on 1";
+            command += "\nam broadcast -a android.intent.action.AIRPLANE_MODE --ez state true";
+            command += "\nsettings put global tether_dun_required 0";
+            exe.Executer(command);
             command = "echo \"" + ttlnumber + "\" > /proc/sys/net/ipv4/ip_default_ttl";
             command += "\nsettings put global airplane_mode_on 0";
             command += "\nam broadcast -a android.intent.action.AIRPLANE_MODE --ez state false";
